@@ -21,7 +21,6 @@ class CSerMonSysDlg : public CDialog
 public:
 	CSerMonSysDlg(CWnd* pParent = NULL);	// standard constructor
 
-	//定义tab实例
 	myCapap m_capDlg;
 	myDiskInfo m_diskInfo;
 	mySettings m_settings;
@@ -42,8 +41,8 @@ public:
 protected:
 	HICON m_hIcon;
 
-	//添加自定义菜单
-	CMenu m_Menu;//定义一个菜单类变量
+	
+	CMenu m_Menu;
 
 	// Generated message map functions
 	//{{AFX_MSG(CSerMonSysDlg)
