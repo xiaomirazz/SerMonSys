@@ -19,7 +19,6 @@ static char THIS_FILE[] = __FILE__;
 /////////////////////////////////////////////////////////////////////////////
 // myCapap dialog
 
-//自定义变量
 
 #define WM_MY_REPAINT (WM_USER +100)
 
@@ -179,16 +178,16 @@ void myCapap::OnPaint()
 	dcMem.CreateCompatibleDC( &dc );
 	dcMem.SelectObject( &bmp );
 	dcMem.FillSolidRect(rect,RGB(236,233,216));
-	CBrush brush;										//画刷
+	CBrush brush;										
 	brush.CreateSolidBrush(RGB(0,0,0));
 
-	CPen pen,pen1,pen2,pen3,pen5;						//画笔
+	CPen pen,pen1,pen2,pen3,pen5;						
 	pen1.CreatePen(PS_SOLID,1,RGB(0,120,0));
 	pen2.CreatePen(PS_SOLID,1,RGB(250,0,0));
 	pen3.CreatePen(PS_SOLID,1,RGB(0,0,0));
 	pen5.CreatePen(PS_SOLID,1,RGB(0,250,0));
 
-	HFONT   hf;											//字体
+	HFONT   hf;											
 	LOGFONT logFont;
 	logFont.lfHeight = 15;
 	logFont.lfWidth   = 0;
@@ -207,7 +206,7 @@ void myCapap::OnPaint()
 	hf=CreateFontIndirect(&logFont);   
 	dcMem.SetBkMode(TRANSPARENT); 
 
-	dcMem.SelectObject( &brush );			//cpu使用率
+	dcMem.SelectObject( &brush );			
 	dcMem.Rectangle(CRect(40,40,90,160));
 	int num = 0;
 	int i,j;
@@ -257,7 +256,7 @@ void myCapap::OnPaint()
 	dcMem.MoveTo(65,46);
 	dcMem.LineTo(65,146);
 	
-	dcMem.Rectangle(CRect(130,40,410,160));	//cpu使用历史记录
+	dcMem.Rectangle(CRect(130,40,410,160));	
 	dcMem.SelectObject(&pen1);				
 	
 	for( i = 40; i <= 160; i+=10)
@@ -278,7 +277,7 @@ void myCapap::OnPaint()
 	}
 
 	dcMem.SelectObject( &pen3 );		
-	dcMem.Rectangle(CRect(40,200,95,320)); //内存使用率
+	dcMem.Rectangle(CRect(40,200,95,320));
 	num = 0;
 	for( i = 50; i <= 80; i++)
 	{
@@ -325,10 +324,10 @@ void myCapap::OnPaint()
 	dcMem.MoveTo(65,200);
 	dcMem.LineTo(65,306);
 	
-	dcMem.Rectangle(CRect(130,200,410,320));	//内存使用历史记录
+	dcMem.Rectangle(CRect(130,200,410,320));
 	dcMem.SelectObject(&pen1);
 	
-	for( i = 200; i <= 320; i+=10)//绘制横线
+	for( i = 200; i <= 320; i+=10)
 	{
 		dcMem.MoveTo(130,i);
 		dcMem.LineTo(410,i);
@@ -369,13 +368,6 @@ BOOL myCapap::OnInitDialog()
 LRESULT myCapap::OnMyRepaint(WPARAM wparam, LPARAM lparam)
 {
 	this->Invalidate(FALSE);
-
-// 	CString str;
-// 	str.Format("可用物理内存     %dK", memAvail/1024);
-// 	GetDlgItem(IDC_STATIC1)->SetWindowText(str);
-// 	
-// 	str.Format("内存总容量       %dK", memTotal/1024);
-// 	GetDlgItem(IDC_STATIC2)->SetWindowText(str);
 
 	return 0;
 }
